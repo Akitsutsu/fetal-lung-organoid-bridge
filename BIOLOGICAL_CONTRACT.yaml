@@ -1,0 +1,94 @@
+version: "0.1"
+
+programs:
+  alveolarization_alignment:
+    question: "How should fetal lung and organoid developmental programs be aligned during alveolarization-relevant development?"
+    emphasis: "Alignment must preserve stage, trajectory, morphology, and off-target interpretation rather than reducing correspondence to nearest-state similarity alone."
+  format_vs_directed_disentanglement:
+    question: "Which observed shifts reflect directed biology rather than culture format alone?"
+    emphasis: "Directed effects must be distinguished from format effects before they are admitted as twin-relevant biological signal."
+
+alignment_rules:
+  reference_context: "fetal_lung"
+  query_context: "organoid"
+  twin_type: "claim_bounded_developmental_twin"
+  scope_definition: "This twin is not a whole-lung equivalence model. It is a claim-bounded developmental twin anchored in broad fetal lung developmental context, focused primarily on epithelial and mesenchymal compartments, with alveolarization-relevant programs as the first concentrated domain."
+  reference_scaffold_rule: "Broader fetal lung structure and developmental flow may orient interpretation, but do not by themselves close claims."
+  primary_anchor_compartments:
+    - epithelial
+    - mesenchymal
+  bridge_unit: "The unit of alignment is a biologically interpretable developmental program rather than a cell-state label alone."
+  first_class_axes:
+    - state
+    - stage
+    - trajectory
+    - morphology
+    - off_target
+  identity_rule: "A candidate alignment is valid only if it remains coherent across the first-class axes."
+  morphology_time_rule: "Morphology and temporal structure are constitutive evidence for identity rather than secondary annotation."
+  format_separation_rule: "Directed biology is twin-relevant only when it is separated from culture format effects."
+  interpretation_rule: "Nearest-state similarity alone is not sufficient for biological alignment."
+  review_rule: "Borderline cases remain review-required rather than auto-accepted."
+
+modality_policy:
+  required_by_default:
+    - single_cell
+  preferred_for_alveolarization:
+    - image
+    - time_resolved
+  supportive_by_default:
+    - spatial
+  parallel_axes:
+    - morphology
+    - molecular_state
+    - spatial_context
+    - temporal_structure
+  integration_rule: "Image-linked molecular evidence and spatially registered evidence provide parallel axes for evaluating correspondence rather than post hoc decoration."
+  priority_rule: "For developmental or morphogenesis questions, image, time-resolved, and spatially registered evidence outrank endpoint-only transcriptomic support."
+
+claims:
+  P-0001:
+    program: "format_vs_directed_disentanglement"
+    statement: "A same-line directed intervention produces a biological shift that is not explained by culture format alone and remains biologically interpretable in fetal developmental context."
+  P-0002:
+    program: "alveolarization_alignment"
+    statement: "Organoid developmental programs can be aligned to fetal lung alveolarization-relevant developmental programs without reducing interpretation to generic nearest-state mapping alone."
+
+acquisition_priority:
+  - same_line_matched_split
+  - serial_or_time_resolved_design
+  - image_linked_evidence
+  - spatially_registered_evidence
+  - compartment_resolved_evidence
+  - donor_resolved_evidence
+  - cross_lab_replication
+
+escalation_path:
+  - processed_public_objects_if_sufficient
+  - sample_condition_and_compartment_level_metadata_completion
+  - image_or_spatial_companion_acquisition
+  - raw_or_sra_reprocessing_if_processed_is_insufficient
+  - internal_data_pivot_if_public_data_cannot_reduce_uncertainty
+
+inadmissibility_rules:
+  - dataset_level_similarity_alone_does_not_close_a_claim
+  - cell_state_label_agreement_alone_does_not_establish_alignment
+  - format_only_evidence_cannot_be_recast_as_directed_evidence
+  - morphology_or_time_ignored_alignment_is_inadmissible
+  - adult_primary_to_fetal_alignment_requires_explicit_caveat_or_hold
+  - broad_reference_scaffold_cannot_by_itself_close_claims
+  - evidence_units_must_be_interpretable_at_sample_condition_or_paired_split_level
+
+success_condition:
+  P-0001: "Same-line evidence separates explicit directed effect from format-only effect and preserves biologically interpretable alignment in fetal developmental context."
+  P-0002: "Alignment is supported across the required axes and remains stable when morphology, temporal structure, and image-linked or spatial evidence are considered."
+
+falsifier:
+  P-0001:
+    - "Format-only conditions reproduce the same shift attributed to the directed intervention."
+    - "The apparent shift depends on cross-study pooling rather than interpretable same-line evidence."
+    - "The shift cannot be situated in fetal developmental context without collapsing to format or generic stress response."
+  P-0002:
+    - "Nearest-state similarity is achieved only by ignoring stage, morphology, temporal structure, or off-target mismatch."
+    - "Alignment fails once epithelial-mesenchymal developmental context is restored."
+    - "Alignment cannot be sustained when serial, image-linked, or spatially registered evidence is considered."
