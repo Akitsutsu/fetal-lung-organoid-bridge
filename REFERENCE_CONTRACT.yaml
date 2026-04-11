@@ -1,0 +1,36 @@
+version: "0.1"
+
+reference_model:
+  type: "paired_expression_metadata_reference"
+  pair_rule: "A reference release is valid only when it includes, at minimum, an explicit expression object plus canonical metadata table pair."
+  integrity_rule: "Expression and canonical metadata are interpreted as one core release unit, not as independently mutable assets. Additional companion assets may be attached but do not replace the core pair."
+
+stage_axis:
+  default_primary_axis: "sample_week"
+  rule: "sample_week is the default primary axis for the current reference release family. Additional or replacement axes may be adopted through explicit reviewed update when developmental interpretation requires them."
+
+support_layers:
+  spatial_default_role: "supportive_for_reference_maintenance"
+  rule: "Supportive layers do not silently replace core release semantics in default reference maintenance. Program- or claim-specific contracts may elevate spatial or image-linked evidence to co-primary or primary status."
+
+release_policy:
+  payload_immutability_rule: "Published release payloads are immutable."
+  annotation_rule: "Errata, annotations, and compatibility mappings may be appended without mutating payload."
+  promotion_rule: "Semantic change requires explicit candidate-to-promotion review."
+
+anchor_policy:
+  anchor_queries_are_not_cohorts_by_default: true
+  promotion_rule: "Anchor contexts may be promoted to cohort-like operational roles only by explicit logged review."
+
+registry_boundary:
+  reference_registry_separate_from_evidence_registry: true
+  explicit_bridge_decision_required: true
+  rule: "Reference maintenance and external evidence admissibility are governed separately. External evidence may support or challenge claims without altering reference semantics. An explicit bridge decision is required only when evidence is admitted to modify, promote, retire, or reinterpret reference semantics."
+
+provenance_minimum:
+  required_units:
+    - release_id
+    - expression_pointer
+    - metadata_pointer
+    - decision_pointer
+  rule: "Every active reference release must remain reconstructable from stable text pointers and logged decisions."
