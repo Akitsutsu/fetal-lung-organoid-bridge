@@ -1,0 +1,208 @@
+version: "0.1"
+
+scope:
+  target_file: "EVIDENCE_REGISTRY.tsv"
+  role: "normative_sidecar"
+  rule: "This file defines how the registry is filled. It does not replace biological or reference contracts."
+
+global_rules:
+  row_model: "one_row_per_evidence_unit"
+  file_model: "flat_tsv"
+  categorical_style: "snake_case_for_registry_defined_tokens"
+  external_canonical_token_rule: "External or field-standard canonical IDs/labels may retain source spelling."
+  semi_open_style_rule: "Semi-open contextual values may retain established scientific capitalization or hyphenation when that improves recognizability and does not create ambiguity."
+  multivalue_delimiter: "|"
+  no_optional_columns_in_v0_1: true
+
+sentinel_values:
+  unknown: "Value exists in principle but is currently not known."
+  not_applicable: "Field does not apply to this evidence unit."
+  none: "No perturbation or caveat is present."
+  unassigned: "Linkage has not yet been assigned."
+
+value_classes:
+  closed_vocab:
+    - source_type
+    - unit_level
+    - modality
+    - compartment
+    - same_line_class
+    - directedness
+    - donor_split_status
+    - evidence_role
+    - workflow_state
+  semi_open:
+    - source_id
+    - source_unit_id
+    - biological_source_context
+    - format_context
+    - perturbation_context
+    - temporal_context
+    - pairing_group_id
+    - caveat_or_hold_reason
+    - cold_provenance_pointer
+  cross_file_reference:
+    - program_links
+    - claim_links
+
+column_groups:
+  identity_spine:
+    - evidence_id
+    - source_type
+    - source_id
+    - source_unit_id
+    - unit_level
+  stable_biological_context:
+    - modality
+    - compartment
+    - biological_source_context
+    - same_line_class
+    - format_context
+    - directedness
+    - perturbation_context
+    - temporal_context
+    - pairing_group_id
+    - donor_split_status
+  linkage_and_adjudication:
+    - program_links
+    - claim_links
+    - evidence_role
+    - workflow_state
+    - caveat_or_hold_reason
+  cold_pointer:
+    - cold_provenance_pointer
+
+columns:
+  evidence_id:
+    requirement: "required"
+    examples: ["EV-0001"]
+    note: "Stable row identifier. Do not reuse or renumber."
+
+  source_type:
+    requirement: "required"
+    examples: ["gse", "internal_dataset", "image_series", "spatial_series", "paper_only"]
+    note: "Type of upstream source."
+
+  source_id:
+    requirement: "required"
+    examples: ["GSE184142", "AMYLAB_2026_001"]
+    note: "Identifier for the full source."
+
+  source_unit_id:
+    requirement: "required"
+    examples: ["GSM5578506", "ALI_air", "pair_01", "img_day14_rep1"]
+    note: "Identifier for the evidence unit within the source."
+
+  unit_level:
+    requirement: "required"
+    examples: ["sample", "condition", "paired_split", "donor_split", "image_set", "serial_chain"]
+    note: "Unit represented by the row."
+
+  modality:
+    requirement: "required"
+    examples: ["single_cell", "bulk_rna", "image", "spatial", "multiome"]
+    note: "Primary modality only."
+
+  compartment:
+    requirement: "required"
+    examples: ["epithelial", "mesenchymal", "mixed", "whole_tissue"]
+    note: "Primary interpretive compartment."
+
+  biological_source_context:
+    requirement: "required"
+    examples: ["SPC2-ST-B2_iAT2", "BU3_NGAT_iAT1", "fetal_lung"]
+    note: "Biological source context used for interpretation."
+
+  same_line_class:
+    requirement: "required"
+    examples: ["same_line", "same_lab_different_line", "cross_line", "not_applicable"]
+    note: "Current interpretive comparison class, not a raw biological fact."
+
+  format_context:
+    requirement: "required"
+    examples: ["3D", "2D_submerged", "ALI", "insert_coculture", "tissue_native"]
+    note: "Culture or tissue format."
+
+  directedness:
+    requirement: "required"
+    examples: ["format_only", "directed", "maintenance", "unknown"]
+    note: "Whether the biological shift is interpreted as directed, format-only, or maintenance."
+
+  perturbation_context:
+    requirement: "required"
+    examples: ["none", "smoke", "YAP5SA", "LDCI", "MRC5_coculture"]
+    note: "Primary perturbation context."
+
+  temporal_context:
+    requirement: "required"
+    examples: ["endpoint_day10", "serial_d1_d3_d7_d10", "fetal_week14", "unknown"]
+    note: "Time or developmental stage context."
+
+  pairing_group_id:
+    requirement: "conditional"
+    examples: ["PG_GSE184142_format_v1", "PG_P0001_same_line_01", "not_applicable"]
+    note: "Matched or paired interpretation group."
+
+  donor_split_status:
+    requirement: "required"
+    examples: ["donor_resolved", "pooled", "unknown", "not_applicable"]
+    note: "Whether donor structure is resolved."
+
+  program_links:
+    requirement: "required"
+    examples: ["alveolarization_alignment", "format_vs_directed_disentanglement", "unassigned"]
+    note: "Program linkage. Must reference programs defined in BIOLOGICAL_CONTRACT.yaml. Use | for multiple values."
+
+  claim_links:
+    requirement: "conditional"
+    examples: ["P-0001", "P-0002", "P-0001|P-0002", "not_applicable"]
+    note: "Claim linkage. Must reference claim IDs defined in BIOLOGICAL_CONTRACT.yaml. Multiple values allowed only when the evidence shares the same role across linked claims."
+
+  evidence_role:
+    requirement: "conditional"
+    examples: ["support", "control", "falsifier_candidate", "boundary_stress", "alignment_anchor", "not_applicable"]
+    note: "Role of the evidence for linked claims."
+
+  workflow_state:
+    requirement: "required"
+    examples: ["registered", "admissible", "hold", "claim_linked", "narrative_ready", "archived"]
+    note: "Single active state in v0.1."
+
+  caveat_or_hold_reason:
+    requirement: "conditional"
+    examples: ["none", "adult_primary_vs_fetal_caveat", "environmental_perturbation_hold"]
+    note: "Short reason string for caveat or hold."
+
+  cold_provenance_pointer:
+    requirement: "required"
+    examples: ["prov:gse184142:GSM5578506", "prov:amylab:2026_001:sample_03"]
+    note: "Pointer to cold provenance. Do not place raw URLs or file paths directly in the registry."
+
+dependency_rules:
+  - if: "unit_level = paired_split"
+    then: "pairing_group_id is required and must not be not_applicable"
+
+  - if: "pairing_group_id != not_applicable"
+    then: "same_line_class must not be not_applicable"
+
+  - if: "claim_links = not_applicable"
+    then: "evidence_role must be not_applicable"
+
+  - if: "claim_links != not_applicable"
+    then: "evidence_role is required and must not be not_applicable"
+
+  - if: "claim_links contains |"
+    then: "evidence_role must be single-valued"
+
+  - if: "workflow_state = hold"
+    then: "caveat_or_hold_reason is required and must not be none"
+
+  - if: "program_links = unassigned"
+    then: "claim_links must be not_applicable"
+
+  - if: "a multivalue field contains unknown, not_applicable, none, or unassigned"
+    then: "that field must contain only that single sentinel value"
+
+interpretation_notes:
+  registry_definition: "The registry is an index of evidence units plus minimum interpretive context and current adjudication."
+  exclusion_rule: "Priority scores, strength ranks, QC metrics, raw URLs, checksums, and execution paths do not belong in this file."
