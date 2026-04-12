@@ -95,3 +95,12 @@ It does not record:
 - affected_files: `decision_log.md`
 - effective_from: 2026-04-12
 - supersedes: none
+
+### D-0007 | 2026-04-12 | accepted | clarify pairing_group_id semantics
+- kind: rule
+- scope: evidence registry rules sidecar
+- decision: `pairing_group_id` is an interpretive comparison-bundle key whose semantic weight is limited unless stronger conditions are separately established. A non-`not_applicable` value must include one of the tokens `cross_study`, `matched_split`, or `serial` to signal the bundle kind. `pairing_group_id` alone does not establish matched-split status, same-experiment provenance, or claim-closing weight.
+- rationale: the first pairing dry run (EV-0001 and EV-0002) showed that the single pairing field conflated a conservative cross-study organizational bundle with a true matched-split or serial design; the registry could not distinguish these without the clarification
+- affected_files: `docs/EVIDENCE_REGISTRY_RULES.yaml`, `decision_log.md`
+- effective_from: 2026-04-12
+- supersedes: none

@@ -140,8 +140,8 @@ columns:
 
   pairing_group_id:
     requirement: "conditional"
-    examples: ["PG_GSE184142_format_v1", "PG_P0001_same_line_01", "not_applicable"]
-    note: "Matched or paired interpretation group."
+    examples: ["PG_P0001_same_line_cross_study_v1", "PG_GSE184142_matched_split_v1", "PG_GSE221344_serial_v1", "not_applicable"]
+    note: "Interpretive comparison-bundle key. May mark a strict matched split, a serial design, or a conservative cross-study organizational grouping. A non-not_applicable value must include one of the tokens cross_study, matched_split, or serial to signal the bundle kind."
 
   donor_split_status:
     requirement: "required"
@@ -206,3 +206,4 @@ dependency_rules:
 interpretation_notes:
   registry_definition: "The registry is an index of evidence units plus minimum interpretive context and current adjudication."
   exclusion_rule: "Priority scores, strength ranks, QC metrics, raw URLs, checksums, and execution paths do not belong in this file."
+  pairing_group_id_semantic_weight: "pairing_group_id alone does not establish matched-split status, same-experiment provenance, or claim-closing weight. It is an interpretive grouping key; stronger semantics require additional fields or linked documents."
