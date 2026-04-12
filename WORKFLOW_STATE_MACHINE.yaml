@@ -1,0 +1,71 @@
+version: "0.1"
+
+scope:
+  target_field: "workflow_state"
+  role: "operational_state_contract"
+  rule: "Each evidence unit has one active workflow state at a time."
+
+state_model:
+  single_active_state: true
+  state_order:
+    - registered
+    - admissible
+    - hold
+    - claim_linked
+    - narrative_ready
+    - archived
+
+states:
+  registered:
+    definition: "The evidence unit is recorded in the registry but has not yet been admitted for claim use."
+  admissible:
+    definition: "Identity and minimum interpretive context are sufficient for biological review."
+  hold:
+    definition: "The evidence unit remains registered but is not currently admitted for active claim use without explicit caveat or further review."
+  claim_linked:
+    definition: "The evidence unit is explicitly linked to at least one claim with a defined role."
+  narrative_ready:
+    definition: "The evidence unit is stable enough for direct use in claim-facing narrative or summary."
+  archived:
+    definition: "The evidence unit is retained for traceability but is not active in the current operating set."
+
+allowed_transitions:
+  registered:
+    - admissible
+    - hold
+    - archived
+  admissible:
+    - claim_linked
+    - hold
+    - archived
+  hold:
+    - admissible
+    - archived
+  claim_linked:
+    - narrative_ready
+    - hold
+    - archived
+  narrative_ready:
+    - hold
+    - archived
+  archived: []
+
+state_rules:
+  registered_rule: "Registration is not admission."
+  admissible_rule: "Admissible means reviewable, not automatically claim-supporting."
+  hold_rule: "Hold preserves the evidence unit in the registry; it does not remove it."
+  claim_linked_rule: "claim_linked requires explicit claim_links and evidence_role."
+  narrative_ready_rule: "narrative_ready requires stable claim linkage and no unresolved hold reason."
+  archived_rule: "Archived evidence remains traceable and may still be cited historically, but it is not active."
+
+authority:
+  automation_may_assist:
+    - registration
+    - schema_validation
+    - consistency_checks
+  human_review_required_for:
+    - transition_into_admissible
+    - transition_into_hold
+    - transition_into_claim_linked
+    - transition_into_narrative_ready
+    - transition_into_archived
