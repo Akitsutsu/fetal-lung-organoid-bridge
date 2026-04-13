@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+@AGENTS.md
+
 This file governs agent behavior in this repository.
 It does not override repository semantics defined elsewhere.
 
