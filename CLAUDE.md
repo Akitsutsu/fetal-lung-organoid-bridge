@@ -19,6 +19,8 @@ Read these files in order before making cross-contract semantic edits:
 For clearly mechanical edits, do not force a full reread of all files.
 When uncertain, classify the edit upward and read more context.
 
+For dual-agent analysis workflows, see `docs/DUAL_AGENT_ANALYSIS_WORKFLOW.md`.
+
 ## Scope and precedence
 Use read order for context acquisition.
 Use precedence order for conflict resolution.
