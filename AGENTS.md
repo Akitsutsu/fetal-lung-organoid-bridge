@@ -53,3 +53,10 @@ translation:
 - Before finishing changes to Markdown, `.github`, registry, or claim-status
   files, scan for accidental Japanese text unless it is an intentional quote or
   example.
+
+## Dual-Agent Analysis
+
+- When coordinating Codex and Claude Code on evidence analysis, follow
+  `docs/DUAL_AGENT_ANALYSIS_WORKFLOW.md`.
+- Treat that document as workflow guidance, not as a biological contract,
+  reference contract, workflow-state extension, or evidence admissibility rule.
