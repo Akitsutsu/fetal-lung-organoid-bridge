@@ -24,6 +24,25 @@ Do not use a local-only cache, scratch clone, or legacy worktree as the
 authoritative repository context.
 
 ## Division Of Labor
+
+This workflow splits responsibilities along two lanes rather than a single
+primary/secondary axis. The lanes are independent: scientific synthesis
+authority does not imply repository-write authority, and vice versa.
+
+- **Scientific synthesis lead: Claude Code.** Owns reclassification, evidence
+  admissibility assessment, source-overlap and redundancy analysis,
+  biological interpretation, uncertainty organization, and proposing candidate
+  repository edits. Claude Code does not need to hold repository-write
+  authority to act as synthesis lead.
+- **Repository execution lead: Codex.** Owns workflow-contract cross-check,
+  minimal registry/memo/doc edits, diff review, validation, commit, pull
+  request, accidental-Japanese scan, and provenance documentation.
+
+For evidence-heavy analysis, Claude Code may act as the scientific synthesis
+lead while remaining read-only by default. Codex remains responsible for
+repository edits, validation, commits, and pull requests unless the human
+user explicitly authorizes a different write path for a specific run.
+
 Codex may:
 
 - ground the repository on `origin/main`
