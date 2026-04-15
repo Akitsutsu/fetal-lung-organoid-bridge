@@ -92,6 +92,52 @@ Avoid command forms that make automation brittle, such as frequently changing
 shell substitutions in approval-sensitive contexts. Prefer stable wrapper
 commands or stable prompt-file paths when repeated runs are expected.
 
+## Token And Context Budget Discipline
+When Claude Code is used for evidence-heavy analysis, its output should be
+optimized for Codex handoff rather than exhaustive transcript preservation.
+Claude Code should summarize the minimum decision-relevant observations,
+blocking uncertainties, candidate repository edits, and validation requirements
+needed for Codex to execute or reject a repository-facing change.
+
+Long raw logs, full exploratory traces, and broad dataset inventories should
+remain in local analysis outputs unless they are directly needed for repository
+review. Token-heavy work should produce a compact handoff, candidate diff, or
+bounded review memo that Codex can cross-check against the repository
+contracts, validate, and convert into a commit or pull request when human
+direction justifies it.
+
+This is operational guidance. It does not modify biological contracts,
+reference contracts, workflow state-machine semantics, evidence admissibility,
+or claim state.
+
+## Session Boundary And Compact Handoff
+For long evidence-heavy Claude Code sessions, create an explicit session
+boundary before clearing context, switching datasets, or handing execution to
+Codex.
+
+Before running `/clear`, Claude Code should produce a compact handoff that
+records only the decision-relevant state needed for continuation:
+
+- current question
+- repository files or local outputs reviewed
+- key conclusions
+- unresolved uncertainties
+- proposed next action
+- constraints on what must not be changed
+
+Use `/rename` before `/clear` when the session may need to be resumed from
+history. The JSONL session log remains available for audit or recovery, but it
+should not be treated as the normal continuation layer.
+
+The compact handoff, not the full session transcript, is the preferred input for
+the next Claude Code session or for Codex execution. Raw logs, full exploratory
+traces, and long tool outputs should remain local unless they are directly
+needed for repository review.
+
+Routine compact handoffs are operational notes. They do not register evidence,
+change claim state, or promote local observations to repository-facing
+artifacts.
+
 ## Analysis Standard
 The analysis itself is the priority.
 
