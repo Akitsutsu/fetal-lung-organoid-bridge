@@ -128,6 +128,18 @@ them under the existing candidate-level independence screen. Axes
 B, D, E, and F remain held, partial, or not locally addressable
 for the reasons given in their individual scope entries.
 
+A similar but distinct pattern applies to Axis D. Some of the
+strongest publicly accessible SAE/SMG organoid candidates identified
+in local scoping are derived from adult primary tissue without an
+explicit fetal-alignment caveat. Those records may be useful as adult
+mature SMG boundary context, but they do not qualify for fetal Axis D
+integration under the existing adult-primary-only without
+fetal-alignment screen. Axes A and D therefore share a structural gap
+pattern: neither fetal-specific axis is closed by candidate records
+passing the current admissibility screens. The underlying disqualifier
+differs, however: parent iPSC line overlap for Axis A, and
+adult-primary-only source without fetal alignment for Axis D.
+
 ## Non-goals
 
 This sidecar does not:
