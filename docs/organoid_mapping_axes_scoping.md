@@ -113,6 +113,21 @@ real fetal populations. Axis definitions should be revisited when
 empirical evidence shows the required-absent set is not satisfied
 by admissible data.
 
+### Axis-specific addressability
+Axes differ in their current addressability by admissible organoid
+queries. Axis C1, Axis C2, and sub-parts of Axis A are addressable
+at the sample or cluster level within the existing admissible
+landscape. Axis A full closure, requiring the Axis A canonical
+basal panel (TP63 / KRT5 / KRT14 / KRT15 / NGFR) to co-fire in a
+fetal or fetal-relevant organoid scRNA dataset, has not been
+demonstrable from currently admissible public organoid query
+records. Some of the strongest basal-directed iPSC organoid
+candidates identified in local scoping share parent iPSC line
+history with already-evidenced organoid lines, which disqualifies
+them under the existing candidate-level independence screen. Axes
+B, D, E, and F remain held, partial, or not locally addressable
+for the reasons given in their individual scope entries.
+
 ## Non-goals
 
 This sidecar does not:
