@@ -89,11 +89,36 @@ framing.
 Secretory-marker expression alone is not sufficient for Axis D;
 SMG interpretation requires ductal or glandular context.
 
-### Axis E — Mesenchymal
-Scope: fetal lung mesenchymal subtypes (alveolar fibroblasts,
-alveolar myofibroblast, pericyte, smooth muscle, lipofibroblast).
-Addressable only by organoid queries with intentional mesenchyme;
-epithelial-only systems are out of scope.
+### Axis E — Mesenchymal tissue context
+Scope: fetal lung mesenchymal subtypes and spatial tissue context. Axis E is
+split into four working sub-axes because generic stromal signal and
+alveolar-supportive mesenchyme are not biologically equivalent.
+
+- **E1 — Alveolar fibroblast / lipofibroblast niche**: PDGFRA+, WNT2+,
+  LIFR+, lipid-handling, or related distal fibroblast states that can support
+  budtip, AT2, and distal epithelial maturation.
+- **E2 — Myofibroblast / septation-like mesenchyme**: ACTA2+, TAGLN+,
+  contractile mesenchyme. This can support septation-like interpretation only
+  when paired with stage, morphology, and spatial context; marker expression
+  alone is not sufficient for a secondary-septation claim.
+- **E3 — Pericyte / smooth muscle / airway-associated mesenchyme**:
+  vascular-support and airway-structural mesenchyme, including pericyte and
+  smooth-muscle-like states.
+- **E4 — Generic stromal mixture / off-target caveat**: broad VIM, COL1A1,
+  COL3A1, or other pan-stromal signal that indicates mesenchymal material but
+  does not by itself identify an alveolar fibroblast niche.
+
+Axis E1-E3 support requires an intentional or compartment-resolved
+mesenchymal component. Epithelial-only systems may still carry an E4 caveat if
+stromal signal appears through carryover, contamination, whole-tissue spatial
+mixture, or unresolved compartment composition.
+
+For spatial data, absence of same-spot co-localization is not sufficient to
+reject a niche interpretation. At Visium-scale resolution, distal epithelium
+and surrounding mesenchyme may appear anti-correlated within individual spots
+because adjacent compartments do not necessarily co-occupy the same capture
+area. Testing niche support therefore requires coordinate-level neighborhood
+or adjacency analysis rather than only same-spot correlation.
 
 ### Axis F — Endothelial / vascular
 Scope: capillary, arterial, venous, lymphatic, and aerocyte
@@ -136,8 +161,15 @@ records. Some of the strongest basal-directed iPSC organoid
 candidates identified in local scoping share parent iPSC line
 history with already-evidenced organoid lines, which disqualifies
 them under the existing candidate-level independence screen. Axes
-B, D, E, and F remain held, partial, or not locally addressable
-for the reasons given in their individual scope entries.
+B, D, and F remain held, partial, or not locally addressable for
+the reasons given in their individual scope entries.
+
+Axis E is addressable as tissue-context mapping in native fetal
+references and whole-tissue spatial data, but it should not be
+treated as organoid niche support unless the organoid record includes
+intentional or compartment-resolved mesenchyme. Generic stromal signal
+in epithelial-intent organoid data belongs to E4 unless it can be
+resolved into E1-E3 subtypes.
 
 A similar but distinct pattern applies to Axis D. Some of the
 strongest publicly accessible SAE/SMG organoid candidates identified
