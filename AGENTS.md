@@ -54,6 +54,16 @@ translation:
   files, scan for accidental Japanese text unless it is an intentional quote or
   example.
 
+## Session Resume
+
+When resuming work, first read the canonical handoff:
+
+`/mnt/c/Users/avanc/Desktop/lungs_analysis/notes/AI_RESUME_HANDOFF.md`
+
+Do not search broadly for handoff files. Do not treat `/tmp` drafts as
+canonical. The handoff contains the read order, pending items, and decision
+landscape.
+
 ## Dual-Agent Analysis
 
 - When coordinating Codex and Claude Code on evidence analysis, follow

@@ -104,3 +104,12 @@ It does not record:
 - affected_files: `docs/EVIDENCE_REGISTRY_RULES.yaml`, `decision_log.md`
 - effective_from: 2026-04-12
 - supersedes: none
+
+### D-0008 | 2026-04-16 | accepted | narrow AQP5 caveat scope to iPSC/hESC-derived organoid systems
+- kind: rule
+- scope: biological contract, alveolar_epithelial_maturation scope layer
+- decision: the AQP5 organoid-system constraint in `alveolar_epithelial_maturation` applies to iPSC/hESC-derived organoid systems specifically, not to organoid systems in general. The reviewed primary fetal organoid anchor (`E-MTAB-8221` Day_0) retains AQP5 at interpretable fractions, so the blanket wording overstated the constraint. Caveat direction is unchanged; only scope is narrowed.
+- rationale: cluster-level analysis of `E-MTAB-8221` Day_0 (Miller 2020, 12w fetal primary BTO) showed AQP5 present alongside budtip markers in a SOX9+NKX2-1+ cluster, supporting the narrower interpretation that the current AQP5-low caveat should be scoped to iPSC/hESC-derived organoid systems rather than treated as a universal organoid limitation. The prior wording risked excluding primary fetal organoid evidence from the maturation layer without justification.
+- affected_files: `BIOLOGICAL_CONTRACT.yaml`
+- effective_from: 2026-04-15 (PR #32)
+- supersedes: none
