@@ -122,3 +122,12 @@ It does not record:
 - affected_files: `docs/organoid_mapping_axes_scoping.md`, `decision_log.md`
 - effective_from: 2026-04-16
 - supersedes: none
+
+### D-0010 | 2026-04-16 | accepted | split Axis E into mesenchymal tissue-context sub-axes
+- kind: clarification
+- scope: organoid mapping axis scoping sidecar
+- decision: split Axis E into E1 alveolar fibroblast / lipofibroblast niche, E2 myofibroblast / septation-like mesenchyme, E3 pericyte / smooth muscle / airway-associated mesenchyme, and E4 generic stromal mixture / off-target caveat. Record that E1-E3 require intentional or compartment-resolved mesenchyme for organoid niche-support interpretation, while epithelial-intent organoid records with unresolved stromal signal should remain E4 caveats.
+- rationale: local native fetal fibroblast and spatial analyses showed that broad stromal signal is not interchangeable with alveolar-supportive mesenchyme. Spot-level anti-correlation between epithelial and mesenchymal weights can reflect adjacent but mutually exclusive compartments at capture resolution, so same-spot correlation alone should not be used to reject niche biology. The update refines the exploratory sidecar without modifying the biological contract, evidence registry, claim status, or admissibility rules.
+- affected_files: `docs/organoid_mapping_axes_scoping.md`, `decision_log.md`
+- effective_from: 2026-04-16
+- supersedes: none
