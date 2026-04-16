@@ -113,3 +113,12 @@ It does not record:
 - affected_files: `BIOLOGICAL_CONTRACT.yaml`
 - effective_from: 2026-04-15 (PR #32)
 - supersedes: none
+
+### D-0009 | 2026-04-16 | accepted | record Axis C1 developmental-window caveat in the scoping sidecar
+- kind: clarification
+- scope: organoid mapping axis scoping sidecar
+- decision: record that the working Axis C1 budtip-progenitor signature is most interpretable across the mid-pseudoglandular to canalicular fetal window, and that lower fit at earlier Carnegie-stage windows or later post-canalicular windows should not by itself be read as absence of distal progenitor biology.
+- rationale: local fetal-reference analysis of the He atlas showed that the SOX9+ NKX2-1+ budtip-marker panel is strongest around the canalicular transition and weaker outside that window. The observation refines interpretation of the scoping sidecar without changing the biological contract, evidence registry, claim status, or admissibility rules. Because the observation is currently single-source, the sidecar records it as a caveat pending independent confirmation rather than as a hard cutoff.
+- affected_files: `docs/organoid_mapping_axes_scoping.md`, `decision_log.md`
+- effective_from: 2026-04-16
+- supersedes: none

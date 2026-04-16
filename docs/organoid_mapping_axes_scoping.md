@@ -63,6 +63,17 @@ coherent cluster with TESC / ID2 / CA2 / FGF20 dominant. SFTPC and
 AQP5 may be present, but they are interpreted as contextual
 commitment markers rather than exclusion criteria.
 
+Current local fetal-reference analysis indicates that this C1
+signature is most interpretable across the mid-pseudoglandular to
+canalicular window, with strongest fit around the canalicular
+transition. Lower fit at earlier Carnegie-stage windows or later
+post-canalicular windows should not by itself be interpreted as loss
+of distal progenitor biology; it may reflect developmental-window
+specificity of the working marker panel or progression into late-tip
+and early alveolar commitment. This window note is based on local
+single-source fetal atlas analysis and remains pending independent
+confirmation.
+
 ### Axis C2 — Late tip / early alveolar commitment
 Scope: SOX9+ NKX2-1+ SFTPC+ cells with commitment markers (HOPX,
 AQP5, AGER, PDPN) that vary with differentiation condition,
