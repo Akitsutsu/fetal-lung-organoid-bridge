@@ -74,7 +74,6 @@ The HIGH follow-up set includes:
 - `E-MTAB-11265`
 - `E-MTAB-8221`
 - `E-MTAB-11435`
-- `E-MTAB-10662`
 - `GSE237359`
 - `GSE221342/343/344`
 - `GSE184142`
@@ -122,4 +121,3 @@ unevenly distributed across claim layers:
 - Blocked rows reveal what public data still cannot resolve.
 
 The census does not by itself close P-0001 or P-0002.
-
