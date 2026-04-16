@@ -117,6 +117,7 @@ Do not attribute system-level improvements to the model alone without explicit s
 ## File discipline
 - Do not add new root files unless a stable new abstraction is required and cannot be represented cleanly by extending an existing contract.
 - Prefer `docs/` sidecars for rules or onboarding material.
+- Use `docs/analysis/` for non-authoritative analysis synthesis that makes paper-supporting local findings reviewable in the repository; this layer does not promote evidence, close claims, alter workflow state, or change contract meanings.
 - Keep semantic files free of raw paths, checksums, and execution detail unless explicitly required.
 - Do not turn `EVIDENCE_REGISTRY.tsv` into a narrative, ranking, or persuasive summary artifact.
 - Do not create new semantic layers to avoid resolving ambiguity.

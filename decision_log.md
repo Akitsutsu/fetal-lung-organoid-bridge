@@ -140,3 +140,12 @@ It does not record:
 - affected_files: `docs/analysis/README.md`, `docs/analysis/public_data_landscape_2026-04-16.md`, `docs/analysis/axis_reference_findings_2026-04-16.md`, `docs/analysis/nonpromotion_rationale_2026-04-16.md`, `docs/analysis/method_validation_findings_2026-04-16.md`, `decision_log.md`
 - effective_from: 2026-04-16
 - supersedes: none
+
+### D-0012 | 2026-04-16 | accepted | clarify docs/analysis/ placement in agent file discipline
+- kind: clarification
+- scope: agent file discipline / repository navigation
+- decision: record in `CLAUDE.md` that non-authoritative analysis synthesis belongs in `docs/analysis/` and remains below the authoritative semantic stack. This directory makes paper-supporting local findings reviewable in the repository but does not promote evidence, close claims, alter workflow state, or change contract meanings.
+- rationale: D-0011 established `docs/analysis/` as a repository-visible analysis synthesis layer. Agent navigation should make that layer discoverable without confusing it with evidence registry entries, claim-status memos, contracts, workflow-state rules, or exploratory sidecars.
+- affected_files: `CLAUDE.md`, `decision_log.md`
+- effective_from: 2026-04-16
+- supersedes: none
