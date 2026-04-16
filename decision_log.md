@@ -131,3 +131,12 @@ It does not record:
 - affected_files: `docs/organoid_mapping_axes_scoping.md`, `decision_log.md`
 - effective_from: 2026-04-16
 - supersedes: none
+
+### D-0011 | 2026-04-16 | accepted | establish docs/analysis/ as repository-visible non-authoritative analysis synthesis layer
+- kind: bridge
+- scope: repository structure / paper-supporting analysis layer
+- decision: establish `docs/analysis/` as a repository-visible, non-authoritative analysis synthesis layer for paper-supporting local findings that should be reviewable in the repository but should not be treated as evidence registry entries, claim-status changes, or contract changes.
+- rationale: the 2026-04-16 local analyses produced substantial paper-relevant findings across the public-data census, He fetal atlas, fetal-primary organoid bridges, R-SPONDIN perturbation, Axis A, Axis E, and cross-modal spatial interpretation. Recording all such findings in `EVIDENCE_REGISTRY.tsv` would weaken the registry's evidence-unit semantics, while leaving them only in local notes would make the paper-supporting analysis layer difficult to review. `docs/analysis/` creates a middle layer between local scratch notes and authoritative claim / evidence / contract artifacts.
+- affected_files: `docs/analysis/README.md`, `docs/analysis/public_data_landscape_2026-04-16.md`, `docs/analysis/axis_reference_findings_2026-04-16.md`, `docs/analysis/nonpromotion_rationale_2026-04-16.md`, `docs/analysis/method_validation_findings_2026-04-16.md`, `decision_log.md`
+- effective_from: 2026-04-16
+- supersedes: none
