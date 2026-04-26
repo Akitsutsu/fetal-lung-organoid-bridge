@@ -140,7 +140,7 @@ columns:
 
   pairing_group_id:
     requirement: "conditional"
-    examples: ["PG_P0001_same_line_cross_study_v1", "PG_GSE184142_matched_split_v1", "PG_GSE221344_serial_v1", "not_applicable"]
+    examples: ["PG_P0001_same_line_cross_study_v1", "PG_GSE184142_matched_split_v1", "PG_GSE221342_serial_ALI_passage_v1", "not_applicable"]
     note: "Interpretive comparison-bundle key. May mark a strict matched split, a serial design, or a conservative cross-study organizational grouping. A non-not_applicable value must include one of the tokens cross_study, matched_split, or serial to signal the bundle kind."
 
   donor_split_status:
